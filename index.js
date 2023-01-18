@@ -15,31 +15,16 @@ const pg = require("pg");
 
 const qrcode = require("qrcode-terminal");
 
-const clientDb2 = new pg.Client({
-  user: "postgres",
-  host: "database-1.c2r6xchxt3al.us-east-1.rds.amazonaws.com",
-  database: "postgres",
-  password: "agustin123",
-  port: 5432,
-});
 
-clientDb2.connect();
 clientDb2.connect();
 
 const client = new Client({ authStrategy: new LocalAuth() });
-const client = new Client({ authStrategy: new LocalAuth() });
 
-client.on("qr", (qr) => {
-  qrcode.generate(qr, { small: true });
+
 client.on("qr", (qr) => {
   qrcode.generate(qr, { small: true });
 });
 
-client.on("ready", () => {
-  console.log("Client is ready!");
-  //client.sendMessage("5493512482254@c.us", 'Hola como estas?');
-
-  enviarMensaje();
 client.on("ready", () => {
   console.log("Client is ready!");
   //client.sendMessage("5493512482254@c.us", 'Hola como estas?');
